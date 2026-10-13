@@ -1,22 +1,47 @@
 #include <iostream>
-#include "Book.hpp"
+#include "Library.hpp"
 
 int main() {
-    std::cout << "=== TEST 1 : Test du constructeur par defaut == \n";
-    Book livreParDefaut;
-    livreParDefaut.afficher(); // Doit afficher "Inconnu", annee 0, etc.
+    std::cout << "=== INITIALISATION DE LA BIBLIOTHEQUE ===\n";
+    Library maBiblio;
+    maBiblio.listerLivres(); // Doit afficher que le catalogue est vide
     std::cout << "\n";
 
-    std::cout << "=== TEST 2 : Test du constructeur avec parametres == \n";
-    Book livre1("Les Miserables", "Victor Hugo", "978-2070409181", 1862);
-    livre1.afficher();
+    std::cout << "=== TEST 1 : Ajout de livres valides ===\n";
+    Book livre1("Programmation en C++", "Bjarne Stroustrup", "978-2100729753", 2015);
+    Book livre2("Algorithmique", "Thomas Cormen", "978-2100545262", 2013);
+
+    maBiblio.ajouterLivre(livre1);
+    maBiblio.ajouterLivre(livre2);
     std::cout << "\n";
 
-    std::cout << "=== TEST 3 : Test unitaire des Getters ==-\n";
-    std::cout << "Titre recupere : " << livre1.getTitre() << "\n";
-    std::cout << "Auteur recupere : " << livre1.getAuteur() << "\n";
-    std::cout << "ISBN recupere : " << livre1.getISBN() << "\n";
-    std::cout << "Annee recuperee : " << livre1.getAnnee() << "\n";
+    std::cout << "=== TEST 2 : Test anti-doublon par ISBN ===\n";
+    // Même ISBN que le livre1, l'ajout doit être refusé
+    Book livreDoublon("Autre version du C++", "Auteur Inconnu", "978-2100729753", 2020);
+    maBiblio.ajouterLivre(livreDoublon);
+    std::cout << "\n";
+
+    std::cout << "=== TEST 3 : Affichage de tout le catalogue ===\n";
+    maBiblio.listerLivres();
+    std::cout << "\n";
+
+    std::cout << "=== TEST 4 : Recherche par ISBN (Succes) ===\n";
+    std::string isbnRecherche = "978-2100545262";
+    const Book* trouve = maBiblio.trouverParISBN(isbnRecherche);
+    if (trouve != nullptr) {
+        std::cout << "[Succes] Livre trouve !\n";
+        trouve->afficher();
+    } else {
+        std::cout << "[Echec] Livre non trouve.\n";
+    }
+    std::cout << "\n";
+
+    std::cout << "=== TEST 5 : Recherche par ISBN (Echec) ===\n";
+    std::string isbnInconnu = "000-0000000000";
+    const Book* introuvable = maBiblio.trouverParISBN(isbnInconnu);
+    if (introuvable == nullptr) {
+        std::cout << "[Info] Test reussi : aucun livre ne correspond a l'ISBN " << isbnInconnu << " (c'est normal).\n";
+    }
 
     return 0;
 }
