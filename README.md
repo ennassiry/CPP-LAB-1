@@ -13,17 +13,13 @@
 
 
 ### ▶️ Exécution
-
-<img width="230" height="66" alt="image" src="https://github.com/user-attachments/assets/0b6468bd-131b-410d-b06b-3e42722747a0" />
+<img width="375" height="299" alt="image" src="https://github.com/user-attachments/assets/acc567ec-d07f-42bc-b4de-e4d157a25254" />
 <br>
-<img width="197" height="56" alt="image copy" src="https://github.com/user-attachments/assets/cf6e3a57-1f9f-46cd-9a8a-f9aaa779a5ac" />
-
-
 # 📌 Exercice 2 :
 
 ### ▶️ Exécution
 
-<img width="499" height="46" alt="image copy 2" src="https://github.com/user-attachments/assets/5a7642a0-36b7-438c-afec-9aa2430f9d6c" />
+<img width="492" height="176" alt="image" src="https://github.com/user-attachments/assets/86d2fd18-b4ba-453c-9039-c0ccff5690a8" />
 
 
 
